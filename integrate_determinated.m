@@ -6,6 +6,7 @@ acc = input('print accuracy(1e-7 for example): ');
 a = input('print left limit: ');
 b = input('print right limit: ');
 
+format long e
 
 [result, cycles] = quad(ysym, a, b, acc);
 disp(['result: ', num2str(result), '; cycles: ', num2str(cycles)])
