@@ -43,7 +43,14 @@ for i = 0:N
     printf(" = %d \n", y(i + 1));
 end
 
-disp(y);
+printf("y = [");
+for i = 1:columns(y)
+    printf("%d", y(i));
+    if (i < columns(y))
+        printf(", ");
+    end
+end
+printf("]\n");
 
 
 isplot = input('show plot?[yN]', 's');
