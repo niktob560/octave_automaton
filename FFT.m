@@ -47,7 +47,7 @@ function X = Xm(m)
     printf("%s + %s * %s = ", num2str(X1), num2str(Wnm), num2str(X2));
     X2 *= Wnm;
     X = X1 + X2;
-    if (X < 1e-15)
+    if (abs(X) < 1e-13)
         X = 0;
     endif
     printf("%s\n", num2str(X));
