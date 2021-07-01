@@ -23,6 +23,9 @@ function X = Xk(k)
         endif
         X += t;
     endfor
+    if (X < 1e-15)
+        X = 0;
+    endif
     printf(" = %s\n", num2str(X));
 endfunction
 
@@ -39,5 +42,11 @@ printf("\nampls:\n");
 
 for i = 0:N-1
     printf("A(%d) = %d\n", i, (abs(X(i + 1))));
+endfor
+
+printf("\nphases(deg):\n");
+
+for i = 0:N-1
+    printf("F(%d) = %d\n", i, (arg(X(i + 1)) * 180 / pi));
 endfor
 
