@@ -74,9 +74,6 @@ for i = 0:N-1
     printf("A(%d) = %d\n", i * fs / N, t);
 endfor
 
-Ai
-A
-
 printf("\nphases(deg):\n");
 
 F = [];
@@ -88,9 +85,6 @@ for i = 0:N-1
     Fi = [Fi, i * fs / N];
     printf("F(%d) = %d\n", i * fs / N, t);
 endfor
-
-Fi
-F
 
 isplot = input('show amplitude spectre?[yN]', 's');
 if isplot == 'y'
