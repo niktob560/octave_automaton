@@ -5,8 +5,7 @@ format short g
 global x
 global N
 
-%x = input('Type vals [x0, x1, x2,...]: ');
-x = [0, -1, 0, 1];
+x = input('Type vals [x0, x1, x2,...]: ');
 
 N = columns(x);
 
@@ -47,6 +46,9 @@ function X = Xm(m)
     printf("%s + %s * %s = ", num2str(X1), num2str(Wnm), num2str(X2));
     X2 *= Wnm;
     X = X1 + X2;
+    if (X < 1e-15)
+        X = 0;
+    endif
     printf("%s\n", num2str(X));
 endfunction
 
@@ -64,4 +66,11 @@ printf("\nampls:\n");
 for i = 0:N-1
     printf("A(%d) = %d\n", i, (abs(X(i + 1))));
 endfor
+
+printf("\nphases(deg):\n");
+
+for i = 0:N-1
+    printf("F(%d) = %d\n", i, (arg(X(i + 1)) * 180 / pi));
+endfor
+
 
