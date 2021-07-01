@@ -47,15 +47,18 @@ function X = Xm(m)
     printf("%s + %s * %s = ", num2str(X1), num2str(Wnm), num2str(X2));
     X2 *= Wnm;
     X = round(X1 + X2);
+    if (X == -0)
+        X = 0;
+    end
     printf("%s\n", num2str(X));
-endfunction
+end
 
 X = [];
 
-for i = 0:N-1
-    Xi = Xm(i);
+for z = 0:N-1
+    Xi = Xm(z);
     X = [X Xi];
-    printf(">>>Xm(%d) = %s\n\n", i, num2str(Xi));
+    printf(">>>Xm(%d) = %s\n\n", z, num2str(Xi));
 endfor
 
 
@@ -64,11 +67,11 @@ printf("\nampls:\n");
 A = [];
 Ai = [];
 
-for i = 0:N-1
-    t = abs(X(i + 1)) / (N / 2);
+for z = 0:N-1
+    t = abs(X(z + 1)) / (N / 2);
     A = [A t];
-    Ai = [Ai, i * fs / N];
-    printf("A(%d) = |%s| * 2 / N = %d\n", i * fs / N, num2str(X(i+1)), t);
+    Ai = [Ai, z * fs / N];
+    printf("A(%d) = |%s| * 2 / N = %d\n", z * fs / N, num2str(X(z + 1)), t);
 endfor
 
 printf("\nphases(deg):\n");
@@ -76,11 +79,11 @@ printf("\nphases(deg):\n");
 F = [];
 Fi = [];
 
-for i = 0:N-1
-    t = arg(X(i + 1)) * 180 / pi;
+for z = 0:N-1
+    t = arg(X(z + 1)) * 180 / pi;
     F = [F t];
-    Fi = [Fi, i * fs / N];
-    printf("F(%d) = arg(%s) * 180 / pi = %d\n", i * fs / N, num2str(X(i + 1)), t);
+    Fi = [Fi, z * fs / N];
+    printf("F(%d) = arg(%s) * 180 / pi = %d\n", z * fs / N, num2str(X(z + 1)), t);
 endfor
 
 isplot = input('show amplitude spectre?[yN]', 's');

@@ -38,19 +38,19 @@ function ret = y(n)
     global P
     global Q
     printf("\ny(%d) = ", n);
-    for i = 0:(P + Q - 2)
-        printf("h(%d) * x(%d - %d)", i, n, i);
-        if (i < P + Q - 2)
+    for z = 0:(P + Q - 2)
+        printf("h(%d) * x(%d - %d)", z, n, i);
+        if (z < P + Q - 2)
             printf(" + ");
         end
     end
     printf("\ny(%d) = ", n);
-    for i = 0:(P + Q - 2)
-        printf("%d * %d", H(i), X(n-i));
-        if (i < P + Q - 2)
+    for z = 0:(P + Q - 2)
+        printf("%d * %d", H(i), X(n - z));
+        if (z < P + Q - 2)
             printf(" + ");
         end
-        ret = ret + H(i) * X(n - i);
+        ret = ret + H(z) * X(n - z);
     end
     printf("\n");
 end
@@ -58,19 +58,17 @@ end
 t = -1;
 i = 0;
 Y = [];
-for i = 1:P+Q-2
-%while (t != 0)
-    t = y(i);
+for z = 1:P+Q-2
+    t = y(z);
     Y = [Y, t];
-    printf("\ty(%d) = %d\n", i, t);
-%    disp([i, t]);
-    i++;
+    printf("\ty(%d) = %d\n", z, t);
+    z++;
 end
 
 printf("y = [");
-for i = 1:columns(Y)
-    printf("%d", Y(i));
-    if (i < columns(Y))
+for z = 1:columns(Y)
+    printf("%d", Y(z));
+    if (z < columns(Y))
         printf(", ");
     end
 end

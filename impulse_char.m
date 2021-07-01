@@ -28,24 +28,24 @@ function ret = Y(n)
     end
 end
 
-for i = 0:N
+for z = 0:N
     global y
-    y(i + 1) = 0;
-    printf("y(%d) = 0", i);
+    y(z + 1) = 0;
+    printf("y(%d) = 0", z);
     for j = 1:columns(a)
-        y(i + 1) += a(j) * x(i - (j - 1));
-        printf(" + %d * x(%d - %d)", a(j), i, j-1);
+        y(z + 1) += a(j) * x(z - (j - 1));
+        printf(" + %d * x(%d - %d)", a(j), z, j-1);
     end
     for j = 1:columns(b)
-        y(i + 1) -= b(j) * Y(i - j);
-        printf(" - %d * %d", b(j), Y(i-j));
+        y(z + 1) -= b(j) * Y(z - j);
+        printf(" - %d * %d", b(j), Y(z - j));
     end
-    printf(" = %d \n", y(i + 1));
+    printf(" = %d \n", y(z + 1));
 end
 
 printf("y = [");
-for i = 1:columns(y)
-    printf("%d", y(i));
+for z = 1:columns(y)
+    printf("%d", y(z));
     if (i < columns(y))
         printf(", ");
     end

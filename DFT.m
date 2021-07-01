@@ -17,7 +17,7 @@ function X = Xk(k)
     printf("X(%d) = ", k);
     for n = 0:N-1
         t = x(n + 1) * e^(-2 * pi * i * k * n / N);
-        printf("(%d*e^(-2*pi*i*%d*%d/%d) =", x(n+1), k, n, N);
+        printf("(%d*e^(-2*pi*i*%d*%d/%d) =", x(n + 1), k, n, N);
         printf(" %s) ", num2str(t));
         if (n < N-1)
             printf("+ ");
@@ -30,10 +30,10 @@ endfunction
 
 X = [];
 
-for i = 0:N-1
-    Xi = Xk(i);
+for z = 0:N-1
+    Xi = Xk(z);
     X = [X Xi];
-    printf(">>>X_K(%d) = %s\n\n", i, num2str(Xi));
+    printf(">>>X_K(%d) = %s\n\n", z, num2str(Xi));
 endfor
 
 printf("\nampls:\n");
@@ -41,11 +41,11 @@ printf("\nampls:\n");
 A = [];
 Ai = [];
 
-for i = 0:N-1
-    t = abs(X(i + 1)) / (N / 2);
+for z = 0:N-1
+    t = abs(X(z + 1)) / (N / 2);
     A = [A t];
-    Ai = [Ai, i * fs / N];
-    printf("A(%d) = |%s| * 2 / N = %d\n", i * fs / N, num2str(X(i+1)), t);
+    Ai = [Ai, z * fs / N];
+    printf("A(%d) = |%s| * 2 / N = %d\n", z * fs / N, num2str(X(z + 1)), t);
 endfor
 
 printf("\nphases(deg):\n");
@@ -53,11 +53,11 @@ printf("\nphases(deg):\n");
 F = [];
 Fi = [];
 
-for i = 0:N-1
-    t = arg(X(i + 1)) * 180 / pi;
+for z = 0:N-1
+    t = arg(X(z + 1)) * 180 / pi;
     F = [F t];
-    Fi = [Fi, i * fs / N];
-    printf("F(%d) = arg(%s) * 180 / pi = %d\n", i * fs / N, num2str(X(i + 1)), t);
+    Fi = [Fi, z * fs / N];
+    printf("F(%d) = arg(%s) * 180 / pi = %d\n", z * fs / N, num2str(X(z + 1)), t);
 endfor
 
 isplot = input('show amplitude spectre?[yN]', 's');
