@@ -58,13 +58,14 @@ end
 t = -1;
 i = 0;
 Y = [];
-while (t != 0)
+for i = 1:P+Q-2
+%while (t != 0)
     t = y(i);
     Y = [Y, t];
     printf("\ty(%d) = %d\n", i, t);
 %    disp([i, t]);
     i++;
-endwhile
+end
 
 printf("y = [");
 for i = 1:columns(Y)
