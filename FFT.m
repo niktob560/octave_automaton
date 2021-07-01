@@ -6,6 +6,7 @@ global x
 global N
 
 x = input('Type vals [x0, x1, x2,...]: ');
+fs = input('fs: ');
 
 N = columns(x);
 
@@ -64,13 +65,13 @@ endfor
 printf("\nampls:\n");
 
 for i = 0:N-1
-    printf("A(%d) = %d\n", i, (abs(X(i + 1))));
+    printf("A(%d) = %d\n", i * fs / N, (abs(X(i + 1)) / (N / 2)));
 endfor
 
 printf("\nphases(deg):\n");
 
 for i = 0:N-1
-    printf("F(%d) = %d\n", i, (arg(X(i + 1)) * 180 / pi));
+    printf("F(%d) = %d\n", i * fs / N, (arg(X(i + 1)) * 180 / pi));
 endfor
 
 
