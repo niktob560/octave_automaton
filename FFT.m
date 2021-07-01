@@ -64,14 +64,44 @@ endfor
 
 printf("\nampls:\n");
 
+A = [];
+Ai = [];
+
 for i = 0:N-1
-    printf("A(%d) = %d\n", i * fs / N, (abs(X(i + 1)) / (N / 2)));
+    t = abs(X(i + 1)) / (N / 2);
+    A = [A t];
+    Ai = [Ai, i * fs / N];
+    printf("A(%d) = %d\n", i * fs / N, t);
 endfor
+
+Ai
+A
 
 printf("\nphases(deg):\n");
 
+F = [];
+Fi = [];
+
 for i = 0:N-1
-    printf("F(%d) = %d\n", i * fs / N, (arg(X(i + 1)) * 180 / pi));
+    t = arg(X(i + 1)) * 180 / pi;
+    F = [F t];
+    Fi = [Fi, i * fs / N];
+    printf("F(%d) = %d\n", i * fs / N, t);
 endfor
 
+Fi
+F
 
+isplot = input('show amplitude spectre?[yN]', 's');
+if isplot == 'y'
+    plot(Ai, A, "*");
+    grid on;
+    input('press enter to continue','s');
+end
+
+isplot = input('show phase spectre?[yN]', 's');
+if isplot == 'y'
+    plot(Fi, F, "*");
+    grid on;
+    input('press enter to continue','s');
+end
