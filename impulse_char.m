@@ -44,3 +44,11 @@ for i = 0:N
 end
 
 disp(y);
+
+
+isplot = input('show plot?[yN]', 's');
+if isplot == 'y'
+    plot([0:N], y);
+    grid on;
+    input('','s');
+end
