@@ -24,9 +24,7 @@ function X = Xk(k)
         endif
         X += t;
     endfor
-    if (abs(X) < 1e-13)
-        X = 0;
-    endif
+    X = round(X);
     printf(" = %s\n", num2str(X));
 endfunction
 

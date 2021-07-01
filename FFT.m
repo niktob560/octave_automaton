@@ -46,10 +46,7 @@ function X = Xm(m)
     endfor
     printf("%s + %s * %s = ", num2str(X1), num2str(Wnm), num2str(X2));
     X2 *= Wnm;
-    X = X1 + X2;
-    if (abs(X) < 1e-13)
-        X = 0;
-    endif
+    X = round(X1 + X2);
     printf("%s\n", num2str(X));
 endfunction
 
