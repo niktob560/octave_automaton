@@ -37,21 +37,40 @@ function ret = y(n)
     ret = 0;
     global P
     global Q
-    printf("\n\t>>>n=%d<<<\n", n);
+    printf("\ny(%d) = ", n);
     for i = 0:(P + Q - 2)
+        printf("h(%d) * x(%d - %d)", i, n, i);
+        if (i < P + Q - 2)
+            printf(" + ");
+        end
+    end
+    printf("\ny(%d) = ", n);
+    for i = 0:(P + Q - 2)
+        printf("%d * %d", H(i), X(n-i));
+        if (i < P + Q - 2)
+            printf(" + ");
+        end
         ret = ret + H(i) * X(n - i);
-        printf("H(%d) = %d;\tX(%d) = %d\n", i, H(i), n - i, X(n-i));
-    endfor
-endfunction
+    end
+    printf("\n");
+end
 
 t = -1;
 i = 0;
 Y = [];
 while (t != 0)
     t = y(i);
-    Y = [Y; t];
+    Y = [Y, t];
     printf("\ty(%d) = %d\n", i, t);
 %    disp([i, t]);
     i++;
 endwhile
 
+printf("y = [");
+for i = 1:columns(Y)
+    printf("%d", Y(i));
+    if (i < columns(Y))
+        printf(", ");
+    end
+end
+printf("]\n");
