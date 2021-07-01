@@ -71,7 +71,7 @@ for i = 0:N-1
     t = abs(X(i + 1)) / (N / 2);
     A = [A t];
     Ai = [Ai, i * fs / N];
-    printf("A(%d) = %d\n", i * fs / N, t);
+    printf("A(%d) = |%s| * 2 / N = %d\n", i * fs / N, num2str(X(i+1)), t);
 endfor
 
 printf("\nphases(deg):\n");
@@ -83,7 +83,7 @@ for i = 0:N-1
     t = arg(X(i + 1)) * 180 / pi;
     F = [F t];
     Fi = [Fi, i * fs / N];
-    printf("F(%d) = %d\n", i * fs / N, t);
+    printf("F(%d) = arg(%s) * 180 / pi = %d\n", i * fs / N, num2str(X(i + 1)), t);
 endfor
 
 isplot = input('show amplitude spectre?[yN]', 's');
