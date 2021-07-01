@@ -6,8 +6,8 @@ Many scripts requiers symbolic package (`octave-symbolic`)
 `DFT` - discrette fourier transform  
 `FFT` - fast fourier transform  
 `fold` - folding of two vectors ("свёртка")  
-`transit_char.m` - evaluate counts of transitional characteristics  
-`impulse_char.m` - evaluate counts of impulse characteristics  
+`transit_char` - evaluate counts of transitional characteristics  
+`impulse_char` - evaluate counts of impulse characteristics  
 
 ---
 
