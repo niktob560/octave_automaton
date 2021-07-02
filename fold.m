@@ -58,7 +58,7 @@ end
 t = -1;
 i = 0;
 Y = [];
-for z = 1:P+Q-2
+for z = 0:P+Q-2
     t = y(z);
     Y = [Y, t];
     printf("\ty(%d) = %d\n", z, t);
