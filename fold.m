@@ -39,14 +39,14 @@ function ret = y(n)
     global Q
     printf("\ny(%d) = ", n);
     for z = 0:(P + Q - 2)
-        printf("h(%d) * x(%d - %d)", z, n, i);
+        printf("h(%d) * x(%d - %d)", z, n, z);
         if (z < P + Q - 2)
             printf(" + ");
         end
     end
     printf("\ny(%d) = ", n);
     for z = 0:(P + Q - 2)
-        printf("%d * %d", H(i), X(n - z));
+        printf("%d * %d", H(z), X(n - z));
         if (z < P + Q - 2)
             printf(" + ");
         end
